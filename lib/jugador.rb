@@ -16,16 +16,16 @@ module Civitas
     @@precio_libertad = 200.0
     @@saldo_inicial = 7500.0
     
-    def initialize (name)
+    def initialize (name, encarcelado = false, casilla_actual = 0, puede_comprar = false, saldo = @@saldo_inicial, propiedades = [])
       @nombre = name
-      @encarcelado = false
-      @num_casilla_actual = 0
-      @puede_comprar = false
-      @saldo = @@saldo_inicial
-      @propiedades = []
+      @encarcelado = encarcelado
+      @num_casilla_actual = casilla_actual
+      @puede_comprar = puede_comprar
+      @saldo = saldo
+      @propiedades = propiedades
     end
     
-    def constr_copia (otro)
+    def constr_copia(otro)
       new(otro.nombre, otro.encarcelado, otro.num_casilla_actual, otro.puede_comprar, otro.saldo, otro.propiedades)
     end
     

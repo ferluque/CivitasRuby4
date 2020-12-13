@@ -92,11 +92,11 @@ module Civitas
   
     private
     def inicializar_mazo_sorpresas (tablero)
-      @mazo.al_mazo(Sorpresa.new_carcel(Civitas::Tipo_sorpresa::IRCARCEL, @tablero))
-      @mazo.al_mazo(Sorpresa.new_cambio_casilla(Civitas::Tipo_sorpresa::IRCASILLA, @tablero, 16, "El jugador se desplaza a la casilla n 16"))
-      @mazo.al_mazo(Sorpresa.new_evita_carcel(Civitas::Tipo_sorpresa::SALIRCARCEL, @mazo))
-      @mazo.al_mazo(Sorpresa.new_otros(Civitas::Tipo_sorpresa::PAGARCOBRAR, -50, "El jugador paga 50 por una multa"))
-      @mazo.al_mazo(Sorpresa.new_otros(Civitas::Tipo_sorpresa::PORCASAHOTEL, -10*get_jugador_actual.cantidad_casas_hoteles, "El jugador paga 10 por cada casa y por cada hotel"))
+      @mazo.al_mazo(SorpresaCarcel.new(@tablero))
+      @mazo.al_mazo(SorpresaIrCasilla.new(@tablero, 16, "El jugador se desplaza a la casilla n 16"))
+      @mazo.al_mazo(SorpresaSalirCarcel.new(@mazo))
+      @mazo.al_mazo(SorpresaPagarCobrar.new(-50, "El jugador paga 50 por una multa"))
+      @mazo.al_mazo(SorpresaPorCasaHotel.new(-10, "El jugador paga 10 por cada casa y por cada hotel"))
       
       @mazo.al_mazo(Sorpresa.new_otros(Civitas::Tipo_sorpresa::PORJUGADOR, 20*(@jugadores.size()-1), "El jugador recibe 20 por cada jugador"))
       @mazo.al_mazo(Sorpresa.new_otros(Civitas::Tipo_sorpresa::PAGARCOBRAR, 100, "Regalo de cumpleanios: el jugador recibe 100"))
@@ -106,7 +106,7 @@ module Civitas
     end
   
     def inicializar_tablero (mazo)
-      @tablero.aniade_casilla(Casilla.new_calle(TituloPropiedad.new("Calle Ganivet", 8.0, 1.1, 35.0, 50.0, 10.0)))
+      @tablero.aniade_casilla(CasillaCalle.new_calle(TituloPropiedad.new("Calle Ganivet", 8.0, 1.1, 35.0, 50.0, 10.0)))
       @tablero.aniade_casilla(Casilla.new_calle(TituloPropiedad.new("Calle Pedro Antonio de Alarcon", 12.0, 1.12, 45.0, 75.0, 25.0)))
       @tablero.aniade_casilla(Casilla.new_sorpresa(mazo, "Casilla Sorpresa"))
       @tablero.aniade_casilla(Casilla.new_calle(TituloPropiedad.new("Avenida Juan Pablo II", 17.0, 1.15, 75.0, 125.0, 35.0)))
