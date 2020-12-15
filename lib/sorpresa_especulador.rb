@@ -15,7 +15,7 @@ module Civitas
     end
   
     def to_s
-      return "SorpresaEspeculador{" + super.to_s + '}'
+      return "SorpresaEspeculador{" + super+ '}'
     end
   end
 end

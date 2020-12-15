@@ -11,15 +11,15 @@ module Civitas
     end
   
     def recibe_jugador (actual, todos)
-      if (super.jugador_correcto(actual, todos))
+      if (jugador_correcto(actual, todos))
         @sorpresa = @mazo.siguiente
-        super.informe(actual, todos)
+        informe(actual, todos)
         @sorpresa.aplicar_a_jugador(actual, todos)
       end
     end
   
     def to_s
-      return "CasillaJuez{"+"nombre=" + super.nombre + ", sorpresa="+@sorpresa.to_s+", mazo= "+@mazo.to_s+'}'
+      return "CasillaJuez{"+"nombre=" + nombre + ", sorpresa="+@sorpresa.to_s+", mazo= "+@mazo.to_s+'}'
     end
   end
 

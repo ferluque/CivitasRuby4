@@ -12,8 +12,8 @@ module Civitas
     end
   
     def recibe_jugador (actual, todos) 
-      if (super.jugador_correcto(actual, todos))
-        super.informe(actual, todos)
+      if (jugador_correcto(actual, todos))
+        informe(actual, todos)
         if (!@titulo_propiedad.tiene_propietario)
           todos[actual].puede_comprar_casilla
         else
@@ -23,7 +23,7 @@ module Civitas
     end
   
     def to_s
-      return "CasillaCalle{" + "nombre=" + super.nombre + ", titulo_propiedad=" + @titulo_propiedad.to_s + '}'
+      return "CasillaCalle{" + "nombre=" + nombre + ", titulo_propiedad=" + @titulo_propiedad.to_s + '}'
     end
   
   end

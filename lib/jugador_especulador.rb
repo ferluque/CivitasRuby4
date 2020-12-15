@@ -9,21 +9,20 @@ module Civitas
   
     def initialize(fianza)
       @fianza = fianza
-    
-    
     end
-  
+    
     def self.nuevo_especulador(jugador, fianza)
+      especulador = new(fianza)
       puts "El error esta en constr_copia"
-      super.constr_copia(jugador)
+      especulador.constr_copia(jugador)
       puts "Sale de constr_copia"
-      propiedades.size.times do |i|
-        propiedades[i].actualiza_propietario_por_conversion(this)      
+      especulador.propiedades.size.times do |i|
+        especulador.propiedades[i].actualiza_propietario_por_conversion(self)      
       end
-      new(fianza)
+      return especulador
     end
     
-    
+    private_class_method :new
     
     def encarcelar (num_casilla_carcel)
       if (tiene_salvoconducto)
@@ -57,7 +56,6 @@ module Civitas
     public
     def construir_casa(ip)
       result = false
-      puedo_edificar_casa = false
       
       if (encarcelado)
         return result
@@ -103,5 +101,9 @@ module Civitas
       return(puedo_gastar(propiedad.precio_edificar) && (propiedad.num_hoteles < get_hoteles_max))
     end
     
+    public
+    def to_s
+      return "JugadorEspeculador{factor_especulador= " + @@factor_especulador.to_s + ", Jugador= "+super+ '}'
+    end
   end
 end

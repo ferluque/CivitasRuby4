@@ -10,14 +10,14 @@ module Civitas
     end
   
     def recibe_jugador (actual, todos)
-      if (super.jugador_correcto(actual, todos))
-        super.informe(actual, todos)
+      if (jugador_correcto(actual, todos))
+        informe(actual, todos)
         todos[actual].encarcelar(@carcel)
       end
     end
   
     def to_s
-      return "CasillaJuez{" + "nombre="+ super.nombre + ",carcel=" + @carcel + '}'
+      return "CasillaJuez{" + "nombre="+ nombre + ",carcel=" + @carcel + '}'
     end
   end
 end

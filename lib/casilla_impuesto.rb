@@ -10,14 +10,14 @@ module Civitas
     end
   
     def recibe_jugador(actual, todos)
-      if (super.jugador_correcto(actual, todos))
-        super.informe(actual, todos)
+      if (jugador_correcto(actual, todos))
+        informe(actual, todos)
         todos[actual].paga_impuesto(@importe)
       end
     end
   
     def to_s
-      return "CasillaImpuesto{"+"nombre="+super.nombre+", importe" + @importe.to_s+'}'
+      return "CasillaImpuesto{"+"nombre="+nombre+", importe" + @importe.to_s+'}'
     end
   end
 end

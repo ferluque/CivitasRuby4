@@ -25,7 +25,7 @@ require_relative "jugador_especulador"
 
 module Civitas
 
-  jugador = Jugador.new("Fernando")
+  jugador = Jugador.new("Fernando", [])
   convertir = SorpresaEspeculador.new(100)
 
   propiedad = TituloPropiedad.new("ABC", 8.0, 1.1, 35.0, 50.0, 10.0)

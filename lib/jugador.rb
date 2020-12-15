@@ -7,7 +7,7 @@ module Civitas
     
     attr_reader :casas_max, :casas_por_hotel, :hoteles_max, 
       :nombre, :num_casilla_actual, :precio_libertad, :paso_por_salida, 
-      :propiedades, :puede_comprar, :saldo, :encarcelado
+      :propiedades, :puede_comprar, :saldo, :encarcelado, :salvoconducto
     
     @@casas_max = 4
     @@casas_por_hotel = 4
@@ -16,17 +16,26 @@ module Civitas
     @@precio_libertad = 200.0
     @@saldo_inicial = 7500.0
     
-    def initialize (name, encarcelado = false, casilla_actual = 0, puede_comprar = false, saldo = @@saldo_inicial, propiedades = [])
+    def initialize (name, encarcelado = false, num_casilla_actual = 0, puede_comprar = false, saldo = @@saldo_inicial, propiedades = [], salvoconducto = nil)
       @nombre = name
       @encarcelado = encarcelado
-      @num_casilla_actual = casilla_actual
+      @num_casilla_actual = num_casilla_actual
       @puede_comprar = puede_comprar
       @saldo = saldo
       @propiedades = propiedades
+      @salvoconducto = salvoconducto
     end
     
+    # De clase o de instancia?
     def constr_copia(otro)
-      new(otro.nombre, otro.encarcelado, otro.num_casilla_actual, otro.puede_comprar, otro.saldo, otro.propiedades)
+      @nombre = otro.nombre
+      @encarcelado = otro.encarcelado
+      @num_casilla_actual = otro.num_casilla_actual
+      @puede_comprar = otro.puede_comprar
+      @saldo = otro.saldo
+      @propiedades = otro.propiedades
+      @salvoconducto = otro.salvoconducto
+      
     end
     
     ######################
