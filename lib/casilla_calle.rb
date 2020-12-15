@@ -6,8 +6,8 @@ module Civitas
   class CasillaCalle < Casilla
     attr_reader :titulo_propiedad
   
-    def initialize (nombre, titulo)
-      super(nombre)
+    def initialize (titulo)
+      super(titulo.nombre)
       @titulo_propiedad = titulo    
     end
   

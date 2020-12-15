@@ -16,7 +16,7 @@ module Civitas
       end
       
       @casillas = Array.new(0)
-      @casillas.push(Casilla.new_descanso("Salida"))
+      @casillas.push(Casilla.new("Salida"))
       @por_salida = 0
       @tiene_juez = false
     end
@@ -43,7 +43,7 @@ module Civitas
     
     def aniadejuez
       if (!@tiene_juez)
-        @casillas.push(Casilla.new_juez(@num_casilla_carcel, "Carcel"))
+        @casillas.push(CasillaJuez.new(@num_casilla_carcel, "Carcel"))
       end
       @tiene_juez = true
     end

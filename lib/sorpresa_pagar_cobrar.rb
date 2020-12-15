@@ -4,7 +4,7 @@
 
 module Civitas
   class SorpresaPagarCobrar < Sorpresa
-    attr_accesor :valor
+    attr_accessor :valor
   
     def initialize(valor, texto)
       super(valor, texto)
