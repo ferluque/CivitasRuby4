@@ -4,7 +4,7 @@
 
 module Civitas
   class CasillaSorpresa < Casilla
-    def initialize (nombre, mazo)
+    def initialize (mazo, nombre)
       super(nombre)
       @mazo = mazo
       @sorpresa = nil

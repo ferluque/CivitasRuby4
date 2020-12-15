@@ -40,7 +40,7 @@ module JuegoTexto
   juego = Civitas::CivitasJuego.new(["Fernando", "Israel"])
   
   
-  Civitas::Dado.instance.set_debug(false)
+  Civitas::Dado.instance.set_debug(true)
   
   controlador = Controlador.new(juego, vista)
   

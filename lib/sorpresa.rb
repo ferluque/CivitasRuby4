@@ -126,7 +126,7 @@ module Civitas
 #    end*/
   
     def informe (actual, todos)
-      Diario.instance.ocurre_evento("Se aplica una sorpresa de tipo " + @tipo.to_s + " al jugador " + todos[actual].nombre)
+      Diario.instance.ocurre_evento("Se aplica una sorpresa al jugador " + todos[actual].nombre)
     end
   
     public

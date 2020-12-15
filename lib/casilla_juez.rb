@@ -4,7 +4,7 @@
 
 module Civitas
   class CasillaJuez < Casilla
-    def initialize(nombre, carcel)
+    def initialize(carcel, nombre)
       super(nombre)
       @carcel = carcel
     end
@@ -17,7 +17,7 @@ module Civitas
     end
   
     def to_s
-      return "CasillaJuez{" + "nombre="+ nombre + ",carcel=" + @carcel + '}'
+      return "CasillaJuez{" + "nombre="+ nombre + ",carcel=" + @carcel.to_s + '}'
     end
   end
 end
